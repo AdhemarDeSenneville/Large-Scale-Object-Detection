@@ -1,0 +1,65 @@
+# dataset settings
+dataset_type = 'DOTAMethaneDataset'
+data_root = "/home/adhemar/Bureau/datasets/Methanizers/Terra_Data_2/" 
+classes = ('all', 'tank', 'pile')
+
+
+#train_pipeline = [
+#    dict(type='LoadImageFromFile'),
+#    dict(type='LoadAnnotations', with_bbox=True),
+#    dict(type='RResize', img_scale=(1024, 1024)),
+#    dict(type='RRandomFlip', flip_ratio=0.5),
+#    dict(type='Normalize', **img_norm_cfg),
+#    dict(type='Pad', size_divisor=32),
+#    dict(type='DefaultFormatBundle'),
+#    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+#]
+#test_pipeline = [
+#    dict(type='LoadImageFromFile'),
+#    dict(
+#        type='MultiScaleFlipAug',
+#        img_scale=(1024, 1024),
+#        flip=False,
+#        transforms=[
+#            dict(type='RResize'),
+#            dict(type='Normalize', **img_norm_cfg),
+#            dict(type='Pad', size_divisor=32),
+#            dict(type='DefaultFormatBundle'),
+#            dict(type='Collect', keys=['img'])
+#        ])
+#]
+
+
+data = dict(
+    samples_per_gpu=3,
+    workers_per_gpu=4,
+    train=dict(
+        filter_empty_gt = False,
+        classes=classes,
+        type=dataset_type,
+        ann_file=data_root + 'train/labels/',
+        img_prefix=data_root + 'train/images/',
+        use_hard_positives = False,
+        use_hard_negatives = False,
+        #pipeline=train_pipeline
+        ),
+    val=dict(
+        filter_empty_gt = False,
+        classes=classes,
+        type=dataset_type,
+        ann_file=data_root + 'val_hard/labels/',
+        img_prefix=data_root + 'val_hard/images/',
+        use_hard_positives = True,
+        use_hard_negatives = True,
+        #pipeline=test_pipeline
+        ),
+    test=dict(
+        filter_empty_gt = False,
+        classes=classes,
+        type=dataset_type,
+        ann_file=data_root + 'val_hard/labels/', # 'test_split/labels/'
+        img_prefix=data_root + 'val_hard/images/', #  'test_split/images/'
+        use_hard_positives = True,
+        use_hard_negatives = True,
+        #pipeline=test_pipeline
+        ))

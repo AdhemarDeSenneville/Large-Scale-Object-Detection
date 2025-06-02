@@ -1,0 +1,20 @@
+# Ignore Python cache files
+__pycache__/
+
+# Ignore environment configuration file
+env.py
+.env
+.vscode/
+
+githubs/
+./data/
+results/
+weights/
+logs/
+
+*.pdf
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log

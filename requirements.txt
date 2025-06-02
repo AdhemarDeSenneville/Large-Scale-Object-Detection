@@ -1,0 +1,50 @@
+conda create --name openmmlab python=3.8 -y
+conda activate openmmlab
+conda install pytorch==1.8.0 torchvision==0.9.0 cudatoolkit=10.2 -c pytorch
+pip install -U openmim
+mim install mmcv-full
+mim install mmdet
+
+cd /home/adhemar/Bureau/METHAN/code/githubs/Large-Selective-Kernel-Network
+pip install -v -e .
+#mim install mmengine
+#mim install rotate
+
+
+pip install timm geopandas openpyxl matplotlib PyYAML geojson rasterio folium seaborn opencv-python geopy scikit-learn
+
+pip install timm
+pip install geopandas
+pip install openpyxl
+pip install matplotlib
+pip install PyYAML
+pip install geojson
+pip install rasterio
+pip install folium
+pip install seaborn
+pip install opencv-python
+pip install geopy
+pip install scikit-learn
+
+
+pip install lsnms --upgrade
+
+
+
+pip install tableauhyperapi
+
+
+'''
+conda create -n mmyolo python=3.8 pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -y
+conda activate mmyolo
+pip install openmim
+mim install "mmengine>=0.6.0"
+mim install "mmcv>=2.0.0rc4,<2.1.0"
+mim install "mmdet>=3.0.0,<4.0.0"
+git clone https://github.com/open-mmlab/mmyolo.git
+cd mmyolo
+# Install albumentations
+pip install -r requirements/albu.txt
+# Install MMYOLO
+mim install -v -e .
+'''

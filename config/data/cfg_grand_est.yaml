@@ -1,0 +1,7 @@
+resolution: 1
+sub_tile_size: 1000
+hop_size: 500
+
+dataset:
+  tile_size: 5000
+  tiles_shapefile_path: /media/adhemar/DATA/adhemar/BD_ORTHO/dalles.shp

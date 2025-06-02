@@ -1,0 +1,24 @@
+resolution: 0.4
+sub_tile_size: 1000
+hop_size: 250
+download:
+  tile_size: 2000
+  api_cfg:
+    LAYER: ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO
+    STYLE: normal
+    FORMAT: image/png
+meta_object_info:
+  mean_probability: 0.9069950738916256
+  mean_width: 232.53146264295836
+  mean_height: 228.4058060421634
+  mean_width_pix: 581.3054187192118
+  mean_height_pix: 571.0295566502463
+dataset:
+  tiles_shapefile_path: /home/adhemar/Bureau/datasets/Geoservices/51/ORTHOHR_1-0_RVB-0M20_JP2-E080_LAMB93_D051_2022-01-01/ORTHOHR/3_SUPPLEMENTS_LIVRAISON_2022-09-00309/OHR_RVB_0M20_JP2-E080_LAMB93_D51-2022/dalles.shp
+  tile_size: 12500
+  num_tiles: 388
+meta_subtile_info:
+  mean_distance_vert: 5077.865697454944
+  variance_distance_vert: 27.101233307175644
+  mean_distance_horiz: 5080.183509610669
+  variance_distance_horiz: 27.125571382684836
