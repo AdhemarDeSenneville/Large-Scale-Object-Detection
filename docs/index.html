@@ -1,0 +1,696 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+		background: white;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>Part-based Object Detection for Large Scale Geostatistical Methane Emissions Estimation</title>
+	<meta property="og:image" content="resources/L1BSR_teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection" />
+	<meta property="og:description" content="ICCV 2025 SEA Workshop - Large Scale Geostatistics" />
+    <link rel="icon" type="image/x-icon" href="resources/iccv_2.ico">
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+
+	<style>
+    /* Interactive viewer styles */
+		#viewer {
+		display: block;
+		margin: 20px auto;
+		max-width: 90%;
+		height: auto;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		}
+		.viewer-controls {
+		text-align: center;
+		margin-bottom: 10px;
+		}
+		.viewer-controls button,
+		.viewer-controls select {
+		font-size: 16px;
+		padding: 6px 12px;
+		margin: 0 5px;
+		}
+ 	</style>
+</head>
+
+<body>
+	<br>
+	<center>
+        <span style="font-size:30px">Towards Large Scale Geostatistical Methane Monitoring </br> with Part-based Object Detection</span> <br>
+        <span style="font-size:20px">ICCV SEA Workshop</span>
+		<div style="height:20px;"></div>
+
+		<table align="center" width="900px">
+		<!-- first row: 4 authors -->
+		<tr>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://adhemardesenneville.github.io/">Adhémar<br>de Senneville</a>
+			</span>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://xavibou.github.io/">Xavi<br>Bou</a>
+			</span>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://scholar.google.fr/citations?user=nnCC19cAAAAJ&hl=en">Thibaud<br>Ehret</a>
+			</span>
+			</td>
+		<!-- </tr> -->
+		<!-- second row: 3 authors (fills full width equally) -->
+		<!-- <tr> -->
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://cv.hal.science/nicolas-dumelie">Nicolas<br>Dumelie</a>
+			</span>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://scholar.google.com/citations?hl=en&user=5gozmjAAAAAJ">Charbel<br>Abdallah</a>
+			</span>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://www.cefe.cnrs.fr/fr/recherche/ef/forecast/832-v/3657-lauvaux-thomas">Thomas<br>Lauvaux</a>
+			</span>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="http://gfacciol.github.io/">Gabriele<br>Facciolo</a>
+			</span>
+			</td>
+		</tr>
+		</table>
+
+		<div style="height:10px;"></div>
+		<div style="font-size:15px; text-align: center;">
+			<a href='https://centreborelli.ens-paris-saclay.fr/fr'>ENS Paris-Saclay, Centre Borelli</a> and <a href="https://www.univ-reims.fr/">Université de Reims</a>
+		</div>
+		<div style="height:10px;"></div>
+
+		<table align=center width=400px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<!-- TODO -->
+							<span style="font-size:20px"><a href='https://arxiv.org/pdf/2304.06871.pdf'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:20px"><a href='https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection/'>[GitHub]</a></span><br>
+						</center>
+					</td> 
+					<td align="center" width="700px">
+						<center>
+							<span style="font-size:20px">
+								<a href="map.html" target="_blank">[Interactive Map]</a>
+							</span><br>
+						</center>
+					</td>                
+					<td align=center width=150px>
+						<center>
+							<!-- TODO -->
+							<span style="font-size:20px"><a href='https://zenodo.org/record/404'>[Dataset]</a></span><br>
+						</center>
+					</td>
+				</tr>
+		</table>
+
+	</center>
+    <br>
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=2500px>
+					<center>
+                  <img class="round" style="width:1000px" src="./figs/main.svg"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table style="margin-top: -40px;" align=center width=850px>
+			<tr>
+				<td>
+					<div style="border: 1px solid #aaa; padding: 15px; border-radius: 6px; background-color: #f9f9f9;">
+                        <b>Overview of our results in the French Grand Est region with the number of detected bio-digester sites in each department in 2023.</b>
+						We use our model to detect unknown bio-digester sites in large areas. On the right, we show <b>(a)</b> some examples of annotated bio-digester sites (from the validation set) with their sub-elements. <b>(b)</b> Shows predictions from our model; even with detection errors and a small training set, the part-based detector reliably identifies bio-digester sites at scale.
+					</div>
+				</td>
+			</tr>
+		</table>
+    </center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td style="text-align: justify;">
+				Object detection is one of the main applications of computer vision in remote sensing imagery. Despite its increasing availability, the sheer volume of remote sensing data poses a challenge when detecting rare objects across large geographic areas. Paradoxically, this common challenge is crucial to many applications, such as estimating environmental impact of certain human activities at scale. In this paper, we propose to address the problem by investigating the methane production and emissions of bio-digesters in France. We first introduce a novel dataset containing bio-digesters, with small training and validation sets, and a large test set with a high imbalance towards observations without objects since such sites are rare. We develop a part-based method that considers essential bio-digester sub-elements to boost initial detections. To this end, we apply our method to new, unseen regions to build an inventory of bio-digesters. We then compute geostatistical estimates of the quantity of methane produced that can be attributed to these infrastructures in a given area at a given time.
+			</td>
+		</tr>
+	</table>
+	<br>
+<!--	<hr>
+	<center><h1>Talk</h1></center>
+	<p align="center">
+		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
+	</p>
+
+	<table align=center width=800px>
+		<br>
+		<tr>
+			<center>
+				<span style="font-size:28px"><a href=''>[Slides]</a>
+				</span>
+			</center>
+		</tr>
+	</table>
+-->
+	<hr>
+
+    <h1 style="text-align: center; margin: 0 0 15px;">Dataset</h1>
+
+
+	
+	<center>
+		<table align="center" width="900px" style="table-layout: fixed;">
+		<tr>
+			<!-- Left half: interactive viewer replaces old static figure -->
+			<!--
+			<td width="70%" style="vertical-align: top; padding-right: 0px;">
+			<img class="round" style="width: 100%; height: auto;" src="./figs/dataset.svg" alt="Dataset illustration"/>
+			<p style="margin-top: -5px; text-align: center; font-size: 14px;">
+				<b>Illustration of aerial and satellite datasets with their annotations.</b>
+				(a) and (b) correspond to BD ORTHO images resampled at 0.5 m and 1.5 m per pixel, respectively. Sentinel‐2 (c) and SPOT (d) images are shown on the bottom.
+			</p>
+			</td>
+			-->
+
+			<td width="60%" style="vertical-align: top; padding-right: 20px; position: relative;">
+
+				<!-- Container for image + overlaid controls -->
+				<div style="position: relative; width: 100%;">
+
+					<!-- Image -->
+					<img
+					id="viewer"
+					src="./figs/sources/Photo_05dm.svg"
+					alt="Interactive dataset image"
+					style="display: block; width: 100%; height: auto; border: 1px solid #ccc; border-radius: 4px;"
+					/>
+
+					<!-- Overlaid controls -->
+					<div class="viewer-controls" style="
+					position: absolute;
+					top: 0px;
+					left: 50%;
+					transform: translateX(-50%);
+					background: rgba(255,255,255,0.8);
+					padding: 5px 10px;
+					border-radius: 4px;
+					display: flex;
+					align-items: center;
+					gap: 8px;
+					">
+					<button id="prevBtn" style="font-size: 14px; padding: 4px 10px;">←</button>
+					<select id="imageSelect" style="font-size: 14px; padding: 4px;">
+						<option value="Photo_05dm.svg">Aerial (0.5m)</option>
+						<option value="Photo_15dm.svg">Aerial (1.5m)</option>
+						<option value="SPOT_15dm.svg">SPOT (1.5m)</option>
+						<option value="Sentinel_10m.svg">Sentinel (10m)</option>
+					</select>
+					<button id="nextBtn" style="font-size: 14px; padding: 4px 10px;">→</button>
+					</div>
+
+				</div>
+				</td>
+
+			<!-- Right half: text description + link -->
+			<td width="40%" style="vertical-align: centre; padding-left: -90px; padding-top: 0px; text-align: justify;">
+			<p>
+				To the best of our knowledge, we release the first large-scale satellite dataset of bio-digesters, including facility and part annotations. Our dataset comprises high-resolution aerial and satellite imagery of bio-digester sites within France’s Grand Est region across different sources (Aerial and SPOT). Ground truth labels are provided as geolocated segmentation annotations. For each bio-digester, we annotated three different classes: the whole bio-digester installation, the (anaerobic) digestion tanks, and biomass piles (feedstock storage areas). The latter two are smaller structures within bio-digester sites and are crucial for confirming site presence. For large-scale evaluation, a test split covers images of the entire French department of Marne, containing 21 known sites. 
+			</p>
+			<p style="text-align: center; margin-top: 1em; font-size: 24px;">
+				<a href="https://zenodo.org/record/7826696" target="_blank" rel="noopener noreferrer">
+				[Download dataset]
+				</a>
+			</p>
+			</td>
+		</tr>
+		</table>
+	</center>
+
+	<!-- Viewer JavaScript (keep this at the end of your body) -->
+	<script>
+	(function(){
+	const images = [
+		"Photo_05dm.svg",
+		"Photo_15dm.svg",
+		"SPOT_15dm.svg",
+		"Sentinel_10m.svg",
+	];
+	let idx = 0;
+
+	const viewer = document.getElementById("viewer");
+	const prevBtn = document.getElementById("prevBtn");
+	const nextBtn = document.getElementById("nextBtn");
+	const select = document.getElementById("imageSelect");
+
+	function updateViewer() {
+		const filename = images[idx];
+		viewer.src = `./figs/sources/${filename}`;
+		select.value = filename;
+	}
+
+	prevBtn.addEventListener("click", () => {
+		idx = (idx - 1 + images.length) % images.length;
+		updateViewer();
+	});
+
+	nextBtn.addEventListener("click", () => {
+		idx = (idx + 1) % images.length;
+		updateViewer();
+	});
+
+	select.addEventListener("change", () => {
+		idx = images.indexOf(select.value);
+		updateViewer();
+	});
+	})();
+	</script>
+	
+	<hr>
+
+    <center><h1>Proposed framework</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<td>
+			<div style="width: 830px; height: 300px; overflow: hidden; margin: 0 auto;">
+				<img src="./figs/framework.svg" style="width: 800px; display: block;" />
+			</div>
+		</td>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td style="text-align: justify";>
+               <b>Proposed framework</b>. The initially annotated dataset is used to train a conventional object detector network. Then, we apply a part-based statistical method to boost detection performance, making large-scale detection bearable. Subsequently, an iterative process takes place, where the trained detector is applied over larger, diverse regions and the top K detections are manually verified and introduced to the dataset. The same process is then conducted with the resulting larger dataset.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<div style="height:20px;"></div>
+
+	<div style="
+	width: 800px;
+	margin: 0 auto;
+	border: 1px solid #aaa;
+	border-radius: 6px;
+	background-color: #f9f9f9;
+	padding: 20px;
+	">
+
+		<h3 style="text-align: center; margin: 0 0 15px;">
+			1. Part-Based Boosting
+		</h3>
+
+		<table
+		align="center"
+		width="800px"
+		style="table-layout: fixed; margin: 0;"
+		>
+			<tr>
+				<!-- Left: Image -->
+				<td width="55%" style="vertical-align: top; ">
+				<img
+					src="./figs/AP.svg"
+					alt="AP illustration"
+					style="width: 100%; height: auto; max-width: 320px; display: block; margin: 0;"
+				>
+				<p style="margin: 0; text-align: center; font-size: 12px; padding-top: 20px;">
+					<em><b>Precision-Recall curves for different detection methods over all the Grand Est region.</b> The probabilistic part-based method (orange) significantly boosts performance.</em>
+				</p>
+				</td>
+
+				<!-- Right: Paragraph text -->
+				<td width="75%" style="vertical-align: centre; text-align: justify; padding-left: 20px; padding-top: 0px;">
+				<p style="margin: 0;">
+					Humans naturally identify fine-grained objects like biodigesters by first spotting potential candidates, then confirming them by checking for characteristic parts—such as tanks and piles. Following this intuition, we define the detection confidence based on the presence of these parts within the detected bio-digester.
+					<!-- We use part detectors (detecting digestion tanks and biomass piles) to boost the performance of the final detector. Although each detector independently produce high amounts of false positives, combining such weak detectors alike in boosting into a unified strong classifier allow to improve detection performance. -->
+				</p>
+				</td>
+			</tr>
+		</table>
+	
+	</div>
+
+	<div style="height:20px;"></div>
+
+
+	
+	<div style="
+	width: 800px;
+	margin: 0 auto;
+	border: 1px solid #aaa;
+	border-radius: 6px;
+	background-color: #f9f9f9;
+	padding: 20px 20px 10px 20px;
+	">
+
+	<h3 style="text-align: center; margin: 0 0 10px;">
+		2. Iterative Refinement
+	</h3>
+
+	<table
+		align="center"
+		width="800px"
+		style="table-layout: fixed; margin: 0;"
+	>
+		<tr>
+		<!-- Left: Paragraph text -->
+		<td width="50%" style="vertical-align: centre; text-align: justify; padding-right: 20px;">
+			<p style="margin: 0 0 10px 0;">
+			With only a limited annotation starting point and vast unlabeled territory, bio-digester detection models suffer from high false positive rates, since digesters show visual similarity to industrial zones, oil storage areas, or farms. Hard negative mining tackles this by identifying high-confidence false positive detections via human inspection and adding these hard examples back into the training set. 
+			<!--At each iteration, a correspondingly harder validation set of challenging examples is also built to provide a more realistic evaluation of performance.  -->
+			<!-- Conducting three iterations (including the initial training) using this “teach what not to detect” strategy yields a detector that is markedly more robust to difficult observations and significantly reduces false alarms. -->
+			</p>
+		</td>
+
+		<!-- Right: Performance table as a “figure” -->
+		<td width="55%" style="vertical-align: top; padding-left: 20px;">
+			<figure style="margin: 0; font-size: 14px;">
+			<table style="width: 100%; border-collapse: collapse;">
+				<thead>
+				<tr>
+					<th style="border-bottom: 1px solid #666; text-align: left; padding: 0px;">Iteration</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">mAP₅₀</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Site</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Pile</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Tank</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">#BG</th>
+					<th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">α</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td style="padding: 4px;">0</td>
+					<td style="padding: 4px; text-align: right;">0.26</td>
+					<td style="padding: 4px; text-align: right;">0.52</td>
+					<td style="padding: 4px; text-align: right;">0.11</td>
+					<td style="padding: 4px; text-align: right;">0.14</td>
+					<td style="padding: 4px; text-align: right;">163</td>
+					<td style="padding: 4px; text-align: right;">50 %</td>
+				</tr>
+				<tr>
+					<td style="padding: 4px;">1</td>
+					<td style="padding: 4px; text-align: right;">0.29</td>
+					<td style="padding: 4px; text-align: right;">0.66</td>
+					<td style="padding: 4px; text-align: right;">0.06</td>
+					<td style="padding: 4px; text-align: right;">0.16</td>
+					<td style="padding: 4px; text-align: right;">263</td>
+					<td style="padding: 4px; text-align: right;">38 %</td>
+				</tr>
+				<tr style="font-weight: bold;">
+					<td style="padding: 4px;">2</td>
+					<td style="padding: 4px; text-align: right;">0.59</td>
+					<td style="padding: 4px; text-align: right;">0.76</td>
+					<td style="padding: 4px; text-align: right;">0.14</td>
+					<td style="padding: 4px; text-align: right;">0.86</td>
+					<td style="padding: 4px; text-align: right;">363</td>
+					<td style="padding: 4px; text-align: right;">31 %</td>
+				</tr>
+				</tbody>
+			</table>
+			<figcaption style="text-align: center; margin-top: 4px; font-style: italic; font-size: 12px;">
+				<b>Hard Negative Mining validation performance across iterations.</b> Conducting three iterations (including the initial training) using this “teach what not to detect” strategy yields a detector that is markedly more robust to difficult observations and significantly reduces false alarms.
+			</figcaption>
+			</figure>
+		</td>
+		</tr>
+	</table>
+
+	<div style="position: relative; left: -75px;">
+		<object type="image/svg+xml" data="figs/hard_neg.svg" width="940px">
+			Your browser does not support SVGss
+		</object>
+		
+	</div>
+	
+		<figcaption style="text-align: center; margin-top: 4px; font-style: italic; font-size: 12px;">
+			<b style="font-weight: bold;">Hard negative examples across three training iterations.</b> 
+			At iteration 0, samples are randomly drawn from the Grand-Est region.
+		</figcaption>
+	</div>
+
+    <table align=center width=800px>
+		<br>
+		<tr><center>
+			<span style="font-size:28px">&nbsp;<a href='https://github.com/centreborelli/L1BSR/'>[Try our code]</a> 
+                    </span>
+            </center>
+	</table>
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-pair {
+    position: relative;
+    width: 176px;
+    height: 176px;
+    margin: 10px;
+    overflow: hidden;
+  }
+  .image1, .image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  .image1 {
+    opacity: 1;
+    z-index: 2;
+    animation: show-and-switch 4s infinite;
+  }
+
+  .image2 {
+    z-index: 1;
+    animation: show-and-switch 4s infinite;
+    animation-delay: 2s;
+  }
+  @keyframes show-and-switch {
+    0%, 48% {
+      opacity: 1;
+    }
+    48.01%, 50%, 98% {
+      opacity: 0;
+    }
+    98.01%, 100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+
+	<br>
+
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Detections at scale in Grand-Est region</h1></center>
+	
+	<center>
+		<iframe src="map.html" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+	</center>
+
+	<hr>
+	<table align=center width=500px>
+		<center><h1>Paper</h1></center>
+		
+		<div style="height:-25px;"></div>
+		<tr>
+			<!-- TODO -->
+			<td><a href=""><img class="layered-paper-big" style="height:185px" src="./resources/paper.png"/></a></td>
+			<td>
+				<span style="font-size:14pt; padding-top: 25px; display: inline-block;">
+					A. de Senneville, X. Bou, T. Ehret, N. Dumelie, C. Abdallah, T. Lauvaux, and G. Facciolo<br>
+					<b>Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection</b><br>
+					(hosted on <a href="https://arxiv.org/pdf/2304.06871.pdf">ArXiv</a>)<br>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="./resources/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align="center" width="900px">
+	<tr>
+		<td width="400px">
+		<left>
+			<center><h1>Acknowledgements</h1></center>
+			This page was adapted from the L1BSR project page by ENS Paris-Saclay, Centre Borelli—corresponding to the work accepted at  
+			<a href="https://www.grss-ieee.org/events/earthvision-2023/">EarthVision 2023</a>.  
+			Original content available at  
+			<a href="https://centreborelli.github.io/L1BSR/">https://centreborelli.github.io/L1BSR/</a>.
+		</left>
+		</td>
+	</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
