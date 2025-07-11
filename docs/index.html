@@ -123,7 +123,7 @@
 	<meta property="og:image" content="figs/main.svg"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
 	<meta property="og:title" content="Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection" />
 	<meta property="og:description" content="ICCV 2025 SEA Workshop - Large Scale Geostatistics" />
-    <link rel="icon" type="image/x-icon" href="resources/iccv_2.ico">
+    <link rel="icon" type="image/x-icon" href="resources/iccv_3.ico">
 
 	<!-- Get from Google Analytics -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -517,7 +517,6 @@
 
 		<!-- Right: Performance table as a “figure” -->
 		<td width="55%" style="vertical-align: top; padding-left: 20px;">
-			<figure style="margin: 0; font-size: 14px;">
 			<table style="width: 100%; border-collapse: collapse;">
 				<thead>
 				<tr>
@@ -558,12 +557,15 @@
 					<td style="padding: 4px; text-align: right;">363</td>
 					<td style="padding: 4px; text-align: right;">31 %</td>
 				</tr>
+				<tr>
+					<td colspan="7">
+						<p style="margin: 0; text-align: center; font-size: 12px; padding-top: 20px;">
+							<em><b>Hard Negative Mining validation performance across iterations.</b> Conducting three iterations (including the initial training) using this “teach what not to detect” strategy yields a detector that is markedly more robust to difficult observations and significantly reduces false alarms.</em>
+						</p>
+					</td>
+				</tr>
 				</tbody>
 			</table>
-			<figcaption style="text-align: center; margin-top: 4px; font-style: italic; font-size: 12px;">
-				<b>Hard Negative Mining validation performance across iterations.</b> Conducting three iterations (including the initial training) using this “teach what not to detect” strategy yields a detector that is markedly more robust to difficult observations and significantly reduces false alarms.
-			</figcaption>
-			</figure>
 		</td>
 		</tr>
 	</table>
@@ -575,11 +577,103 @@
 		
 	</div>
 	
-		<figcaption style="text-align: center; margin-top: 4px; font-style: italic; font-size: 12px;">
-			<b style="font-weight: bold;">Hard negative examples across three training iterations.</b> 
-			At iteration 0, samples are randomly drawn from the Grand-Est region.
-		</figcaption>
+	<p style="margin: 0; text-align: center; font-size: 12px; padding-top: 20px;">
+		<b>Hard negative examples across three training iterations.</b> At iteration 0, samples are randomly drawn from the Grand-Est region.
+	</p>
 	</div>
+
+<hr>
+
+<center><h1>Results</h1></center>
+
+<div style="width: 800px; margin: 30px auto 30px auto; border: 1px solid #aaa; border-radius: 6px; background-color: #f9f9f9; padding: 20px;">
+  <h3 style="text-align: center; margin: 0 0 15px;">
+    Detection Results Across Regions
+  </h3>
+  <table style="width:100%; font-size: 15px; border-collapse: collapse; margin-bottom: 0;">
+    <thead>
+    <tr>
+      <th rowspan="2" style="border-bottom: 1px solid #666; text-align: left; padding: 4px;">Region</th>
+      <th colspan="3" style="border-bottom: 1px solid #666; text-align: center; padding: 4px;">In-Database</th>
+      <th colspan="3" style="border-bottom: 1px solid #666; text-align: center; padding: 4px;">Overall</th>
+    </tr>
+    <tr>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">TP</th>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">GT</th>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Recall</th>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Correct</th>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Total</th>
+      <th style="border-bottom: 1px solid #666; text-align: right; padding: 4px;">Precision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px;">Grand Est</td>
+      <td style="padding: 4px; text-align: right;">188</td>
+      <td style="padding: 4px; text-align: right;">224</td>
+      <td style="padding: 4px; text-align: right;">83.9%</td>
+      <td style="padding: 4px; text-align: right;">251</td>
+      <td style="padding: 4px; text-align: right;">311</td>
+      <td style="padding: 4px; text-align: right;">80.7%</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;">Marne</td>
+      <td style="padding: 4px; text-align: right;">18</td>
+      <td style="padding: 4px; text-align: right;">21</td>
+      <td style="padding: 4px; text-align: right;">85.7%</td>
+      <td style="padding: 4px; text-align: right;">28</td>
+      <td style="padding: 4px; text-align: right;">36</td>
+      <td style="padding: 4px; text-align: right;">77.8%</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px;">Bretagne</td>
+      <td style="padding: 4px; text-align: right;">96</td>
+      <td style="padding: 4px; text-align: right;">179</td>
+      <td style="padding: 4px; text-align: right;">53.6%</td>
+      <td style="padding: 4px; text-align: right;">131</td>
+      <td style="padding: 4px; text-align: right;">185</td>
+      <td style="padding: 4px; text-align: right;">70.8%</td>
+    </tr>
+  </tbody>
+  <tr>
+    <td colspan="7">
+      <p style="margin: 0; text-align: center; font-size: 12px; padding-top: 20px;">
+        <em><b>Detection results in Marne, Grand Est, and Bretagne sub-regions.</b> Results are split between in-database detections (existing ground truth) and overall detections, including new discoveries. Precision and recall are computed using confirmed matches; overall counts include detections outside the reference database.</em>
+      </p>       
+	  <p width="75%"  style="vertical-align: centre; text-align: justify; padding-left: 20px; padding-top: 0px;">
+		Our system was able to detect new sites outside of the reference training set and generalize to new regions, such as Bretagne, showing transferability and discovery capability.
+	</p>
+    </td>
+ 
+</table>
+</div>
+
+<div style="width: 800px; margin: 30px auto 0 auto; border: 1px solid #aaa; border-radius: 6px; background-color: #f9f9f9; padding: 20px;">
+  <h3 style="text-align: center; margin: 0 0 15px;">
+    Power Production Estimation in Bretagne
+  </h3>
+  <table align="center" width="800px" style="table-layout: fixed; margin: 0;">
+    <tr>
+      <!-- Left: Figure -->
+      <td width="55%" style="vertical-align: top;">
+        <img
+          src="./figs/power_prediction.svg"
+          alt="Power production prediction vs tank area"
+          style="width: 100%; height: auto; max-width: 320px; display: block; margin: 0;"
+        >
+        <p style="margin: 0; text-align: center; font-size: 12px; padding-top: 20px;">
+          <em><b>Power Production (kW) against Tank Area (m²)</b> in Bretagne region (r² = 0.332).</em>
+        </p>
+      </td>
+      <!-- Right: Text -->
+      <td width="75%" style="vertical-align: centre; text-align: justify; padding-left: 20px; padding-top: 0px;">
+        <p style="margin: 0;">
+          Estimating power production over a large area provides valuable insight into potential methane leaks and atmospheric impact. Leveraging the generated bio-digester inventory of Bretagne, we estimate its aggregated production in kilowatts (kW), for which ground truth is available<sup><a href="https://aile.asso.fr/biogaz/la-filiere/carte-chiffres-cles-methanisation/">[AILE2025]</a></sup>. We build a linear regression model that predicts power production based on the overall detected tank area at each site. While the model exhibits a large predictive error, it provides reasonable aggregated estimates over many observations.
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
 
     <table align=center width=800px>
 		<br>
@@ -677,18 +771,16 @@
 	<br>
 
 	<table align="center" width="900px">
-	<tr>
-		<td width="400px">
-		<left>
-			<center><h1>Acknowledgements</h1></center>
-			This page was adapted from the L1BSR project page by ENS Paris-Saclay, Centre Borelli—corresponding to the work accepted at  
-			<a href="https://www.grss-ieee.org/events/earthvision-2023/">EarthVision 2023</a>.  
-			Original content available at  
-			<a href="https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection/">https://centreborelli.github.io/L1BSR/</a>.
-		</left>
-		</td>
-	</tr>
-	</table>
+		<tbody><tr>
+			<td width="400px">
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 <br>
 </body>

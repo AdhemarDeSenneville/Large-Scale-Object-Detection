@@ -15,9 +15,5 @@ Centre Borelli, ENS Paris-Saclay and Université de Reims
 
 ---
 
-## Quick Start
-
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection.git
-   cd Large-Scale-Object-Detection
+## TODO
+- [ ] Set up Google site verification if you want to use Google Search Console or other Google services for this site.
