@@ -1,0 +1,22 @@
+# Ignore Python cache files
+__pycache__/
+
+# Ignore environment configuration file
+env.py
+.env
+.vscode/
+
+githubs/
+paper/
+./data/
+results/
+weights/
+logs/
+pipelines/europe_scale/data
+
+*.pdf
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
