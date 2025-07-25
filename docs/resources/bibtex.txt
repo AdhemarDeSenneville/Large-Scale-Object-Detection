@@ -1,6 +1,9 @@
-@inproceedings{Nguyen_2023_L1BSR,
-  title={L1BSR: Exploiting Detector Overlap for Self-Supervised Single-Image Super-Resolution of Sentinel-2 L1B Imagery},
-  author    = {Nguyen, Ngoc Long and Anger, Jeremy and Davy, Axel and Arias, Pablo and Facciolo, Gabriele},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2023}
+@misc{desenneville2025largescalegeostatisticalmethane,
+      title={Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection}, 
+      author={Adhemar de Senneville and Xavier Bou and Thibaud Ehret and Rafael Grompone and Jean Louis Bonne and Nicolas Dumelie and Thomas Lauvaux and Gabriele Facciolo},
+      year={2025},
+      eprint={2507.18513},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2507.18513}, 
 }

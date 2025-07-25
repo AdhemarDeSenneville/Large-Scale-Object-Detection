@@ -14,7 +14,7 @@
 	
 	h1 {
 		font-size:32px;
-		font-weight:300;
+		font-weight:450;
 	}
 	
 	.disclaimerbox {
@@ -162,8 +162,8 @@
 <body>
 	<br>
 	<center>
-        <span style="font-size:30px">Towards Large Scale Geostatistical Methane Monitoring </br> with Part-based Object Detection</span> <br>
-        <span style="font-size:20px">ICCV SEA Workshop</span>
+        <span style="font-size:30px; font-weight:400">Towards Large Scale Geostatistical Methane Monitoring </br> with Part-based Object Detection</span> <br>
+        <span style="font-size:20px; font-weight:400">ICCV SEA Workshop</span>
 		<div style="height:20px;"></div>
 
 		<table align="center" width="900px">
@@ -184,6 +184,12 @@
 				<a href="https://scholar.google.fr/citations?user=nnCC19cAAAAJ&hl=en">Thibaud<br>Ehret</a>
 			</span>
 			</td>
+			</td>
+			<td align="center">
+			<span style="font-size:20px">
+				<a href="https://centreborelli.ens-paris-saclay.fr/fr/annuaire-des-personnes/raffaele-grompone">Rafael<br>Grompone</a>
+			</span>
+			</td>
 		<!-- </tr> -->
 		<!-- second row: 3 authors (fills full width equally) -->
 		<!-- <tr> -->
@@ -194,7 +200,7 @@
 			</td>
 			<td align="center">
 			<span style="font-size:20px">
-				<a href="https://scholar.google.com/citations?hl=en&user=5gozmjAAAAAJ">Charbel<br>Abdallah</a>
+				<a href="https://scholar.google.com/citations?user=HcKn7BIAAAAJ&hl=fr">Jean-Louis<br>Bonne</a>
 			</span>
 			</td>
 			<td align="center">
@@ -221,7 +227,7 @@
 					<td align=center width=120px>
 						<center>
 							<!-- TODO -->
-							<span style="font-size:20px"><a href='https://arxiv.org/pdf/2304.06871.pdf'>[Paper]</a></span>
+							<span style="font-size:20px"><a href='https://arxiv.org/abs/2507.18513'>[Paper]</a></span>
 						</center>
 					</td>
 					<td align=center width=120px>
@@ -239,7 +245,7 @@
 					<td align=center width=150px>
 						<center>
 							<!-- TODO -->
-							<span style="font-size:20px"><a href='https://zenodo.org/record/404'>[Dataset]</a></span><br>
+							<span style="font-size:20px"><a href='https://zenodo.org/records/16411300'>[Dataset]</a></span><br>
 						</center>
 					</td>
 				</tr>
@@ -361,7 +367,7 @@
 				To the best of our knowledge, we release the first large-scale satellite dataset of bio-digesters, including facility and part annotations. Our dataset comprises high-resolution aerial and satellite imagery of bio-digester sites within France’s Grand Est region across different sources (Aerial and SPOT). Ground truth labels are provided as geolocated segmentation annotations. For each bio-digester, we annotated three different classes: the whole bio-digester installation, the (anaerobic) digestion tanks, and biomass piles (feedstock storage areas). The latter two are smaller structures within bio-digester sites and are crucial for confirming site presence. For large-scale evaluation, a test split covers images of the entire French department of Marne, containing 21 known sites. 
 			</p>
 			<p style="text-align: center; margin-top: 1em; font-size: 24px;">
-				<a href="https://zenodo.org/record/404" target="_blank" rel="noopener noreferrer">
+				<a href="https://zenodo.org/records/16411300" target="_blank" rel="noopener noreferrer">
 				[Download dataset]
 				</a>
 			</p>
@@ -668,7 +674,7 @@
       <!-- Right: Text -->
       <td width="75%" style="vertical-align: centre; text-align: justify; padding-left: 20px; padding-top: 0px;">
         <p style="margin: 0;">
-          Estimating power production over a large area provides valuable insight into potential methane leaks and atmospheric impact. Leveraging the generated bio-digester inventory of Bretagne, we estimate its aggregated production in kilowatts (kW), for which ground truth is available<sup><a href="https://aile.asso.fr/biogaz/la-filiere/carte-chiffres-cles-methanisation/">[AILE2025]</a></sup>. We build a linear regression model that predicts power production based on the overall detected tank area at each site. While the model exhibits a large predictive error, it provides reasonable aggregated estimates over many observations.
+          Estimating power production over a large area provides valuable insight into potential methane leaks and atmospheric impact. Leveraging the generated bio-digester inventory of Bretagne, we estimate its aggregated production in kilowatts (kW), for which ground truth is available. We build a linear regression model that predicts power production based on the overall detected tank area at each site. While the model exhibits a large predictive error, it provides reasonable aggregated estimates over many observations.
         </p>
       </td>
     </tr>
@@ -677,10 +683,13 @@
 
     <table align=center width=800px>
 		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection/'>[Try our code]</a> 
-                    </span>
-            </center>
+		<td align="center" style="padding-top: 1em;">
+			<span style="font-size:24px;">
+				<a href="https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection/" target="_blank" rel="noopener noreferrer">
+					[Try our code]
+				</a>
+			</span>
+		</td>
 	</table>
 <style>
   .image-container {
@@ -734,7 +743,7 @@
 	<hr>
 
 	<table align=center width=850px>
-		<center><h1>Detections at scale in Grand-Est region</h1></center>
+		<center><h1>New Detections at scale in Bretagne</h1></center>
 	
 	<center>
 		<iframe src="map.html" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -750,9 +759,9 @@
 			<td><a href=""><img class="layered-paper-big" style="height:185px" src="./resources/paper.png"/></a></td>
 			<td>
 				<span style="font-size:14pt; padding-top: 25px; display: inline-block;">
-					A. de Senneville, X. Bou, T. Ehret, N. Dumelie, C. Abdallah, T. Lauvaux, and G. Facciolo<br>
+					A. de Senneville, X. Bou, T. Ehret, R. Grompone, J-L. Bonne, N. Dumelie, T. Lauvaux, and G. Facciolo<br>
 					<b>Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection</b><br>
-					(hosted on <a href="https://arxiv.org/pdf/2304.06871.pdf">ArXiv</a>)<br>
+					(hosted on <a href="https://arxiv.org/abs/2507.18513">ArXiv</a>)<br>
 				</span>
 			</td>
 		</tr>
