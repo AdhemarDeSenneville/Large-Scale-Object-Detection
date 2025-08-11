@@ -1,16 +1,15 @@
-# Part-based Object Detection for Large Scale Geostatistical Methane Emissions Estimation
+# Towards Large Scale Geostatistical Methane Monitoring with Part‑based Object Detection
 
-[Adhémar de Senneville](https://adhemardesenneville.github.io/), [Xavi Bou](https://xavibou.github.io/), [Thibaud Ehret](https://scholar.google.fr/citations?user=nnCC19cAAAAJ&hl=en), [Nicolas Dumelie](https://cv.hal.science/nicolas-dumelie), [Charbel Abdallah](https://scholar.google.com/citations?hl=en&user=5gozmjAAAAAJ), [Thomas Lauvaux](https://www.cefe.cnrs.fr/fr/recherche/ef/forecast/832-v/3657-lauvaux-thomas), [Gabriele Facciolo](http://gfacciol.github.io/)
+[Adhémar de Senneville](https://adhemardesenneville.github.io/) · [Xavi Bou](https://xavibou.github.io/) · [Thibaud Ehret](https://scholar.google.fr/citations?user=nnCC19cAAAAJ&hl=en) · [Rafael Grompone](https://centreborelli.ens-paris-saclay.fr/fr/annuaire-des-personnes/raffaele-grompone) · [Nicolas Dumelie](https://cv.hal.science/nicolas-dumelie) · [Jean‑Louis Bonne](https://scholar.google.com/citations?user=HcKn7BIAAAAJ&hl=fr) · [Thomas Lauvaux](https://www.cefe.cnrs.fr/fr/recherche/ef/forecast/832-v/3657-lauvaux-thomas) · [Gabriele Facciolo](http://gfacciol.github.io/)
 
-Centre Borelli, ENS Paris-Saclay and Université de Reims
+Centre Borelli, ENS Paris‑Saclay & Université de Reims
 
 ![Overview of our results in the French Grand Est region with the number of detected bio-digester sites in each department in 2023. We use our model to detect unknown bio-digester sites in large areas. On the right, we show (a) some examples of annotated bio-digester sites (from the validation set) with their sub-elements. (b) Shows predictions from our model; even with detection errors and a small training set, the part-based detector reliably identifies bio-digester sites at scale.](assets/main.svg)
 
 ## Resources
 
-- 📄 **Paper**: [arXiv 2304.06871](https://arxiv.org/pdf/2304.06871.pdf)  
-- 💻 **Code & Models**: [GitHub Repository](https://github.com/AdhemarDeSenneville/Large-Scale-Object-Detection/)  
-- 🌐 **Interactive Map**: [map.html](./docs/map.html)  
+- 📄 **Website**: [github.io](https://adhemardesenneville.github.io/Large-Scale-Object-Detection/)
+- 📄 **Paper**: [arXiv 2304.06871](https://arxiv.org/abs/2507.18513)
 - 📦 **Dataset**: [Zenodo Record](https://zenodo.org/records/16411300)  
 
 Here’s the **full GitHub README in English**, properly structured, Markdown-formatted, with commands, documented arguments, and research-style clarity.
@@ -22,25 +21,6 @@ Here’s the **full GitHub README in English**, properly structured, Markdown-fo
 This repository provides tools for detecting **methane digesters** in large-scale **RGB satellite imagery** using **part-based object detection** and for estimating geostatistical methane emissions.
 Our approach leverages **MMRotate** for rotated object detection, enabling robust detection across various resolutions and imaging modalities (SPOT, BDORTHO).
 
----
-
-## **Dataset**
-
-The dataset used in this work is available on Zenodo:
-**[Methanizers Dataset – Zenodo Record](https://zenodo.org/records/16411300)**
-
-Structure:
-
-```
-V_multy_source/
-   ├── res_0.5/
-   │    ├── image/
-   │    ├── label/
-   │    │    └── annotations.json
-   ├── res_1.5/
-   │    ├── test/
-   │    ├── ...
-```
 
 ---
 
@@ -124,10 +104,10 @@ python -m src.tools.test \
 
 ## **Model Zoo**
 
-| Model         | Resolution | mAP (%) | Config File                      | Checkpoint   |
-| ------------- | ---------- | ------- | -------------------------------- | ------------ |
-| SPOT-150cm    | 1.5 m      | XX.X    | `configs/train_spot_150cm.py`    | [Download]() |
-| BDORTHO-150cm | 1.5 m      | XX.X    | `configs/train_bdortho_150cm.py` | [Download]() |
+| Model         | Resolution | Config File                      | Checkpoint   |
+| ------------- | ---------- | -------------------------------- | ------------ |
+| SPOT-150cm    | 1.5 m      | `configs/train_spot_150cm`       | [Download]() |
+| BDORTHO-150cm | 1.5 m      | `configs/train_bdortho_150cm`    | [Download]() |
 
 ---
 
@@ -143,10 +123,13 @@ Modify the configuration file to adapt backbone, data resolution, or augmentatio
 If you use this work, please cite:
 
 ```bibtex
-@article{desenneville2023methane,
-  title={Part-based Object Detection for Large-Scale Geostatistical Methane Emissions Estimation},
-  author={de Senneville, Adh{\'e}mar and Bou, Xavi and Ehret, Thibaud and Dumelie, Nicolas and Abdallah, Charbel and Lauvaux, Thomas and Facciolo, Gabriele},
-  journal={arXiv preprint arXiv:2304.06871},
-  year={2023}
+@misc{desenneville2025largescalegeostatisticalmethane,
+      title={Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection}, 
+      author={Adhemar de Senneville and Xavier Bou and Thibaud Ehret and Rafael Grompone and Jean Louis Bonne and Nicolas Dumelie and Thomas Lauvaux and Gabriele Facciolo},
+      year={2025},
+      eprint={2507.18513},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2507.18513}, 
 }
 ```
