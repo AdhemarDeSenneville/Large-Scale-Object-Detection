@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 ---
 
-### **Command**
+## **Evaluation**
 
 ```bash
 python -m src.tools.eval \
