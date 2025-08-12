@@ -12,10 +12,6 @@ Centre Borelli, ENS Paris‑Saclay & Université de Reims
 - 📄 **Paper**: [arXiv 2304.06871](https://arxiv.org/abs/2507.18513)
 - 📦 **Dataset**: [Zenodo Record](https://zenodo.org/records/16411300)  
 
-Here’s the **full GitHub README in English**, properly structured, Markdown-formatted, with commands, documented arguments, and research-style clarity.
-
----
-
 ## **Overview**
 
 This repository provides tools for detecting **methane digesters** in large-scale **RGB satellite imagery** using **part-based object detection** and for estimating geostatistical methane emissions.
