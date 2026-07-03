@@ -119,13 +119,12 @@ Modify the configuration file to adapt backbone, data resolution, or augmentatio
 If you use this work, please cite:
 
 ```bibtex
-@misc{desenneville2025largescalegeostatisticalmethane,
-      title={Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection}, 
-      author={Adhemar de Senneville and Xavier Bou and Thibaud Ehret and Rafael Grompone and Jean Louis Bonne and Nicolas Dumelie and Thomas Lauvaux and Gabriele Facciolo},
-      year={2025},
-      eprint={2507.18513},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2507.18513}, 
+@InProceedings{de_Senneville_2025_ICCV,
+    author    = {de Senneville, Adhemar and Bou, Xavier and Bonne, Jean-Louis and Dumelie, Nicolas and Grompone, Rafael and Ehret, Thibaud and Facciolo, Gabriele},
+    title     = {Towards Large Scale Geostatistical Methane Monitoring with Part-based Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2025},
+    pages     = {2886-2896}
 }
 ```
